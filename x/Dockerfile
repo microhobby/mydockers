@@ -7,19 +7,22 @@ COPY qemu-arm-static /usr/bin
 RUN apt-get -y update && apt-get install -y \
 	udev \
 	x11-xkb-utils \
-    	xkb-data \
+	xkb-data \
 	xserver-xorg-core \
-    	xinit \
+	xinit \
 	xserver-xorg-input-libinput \
 	xserver-xorg-input-evdev \
 	xserver-xorg-input-mouse \
 	xserver-xorg-input-kbd \
 	xserver-xorg-video-fbdev \
 	x11-utils \
-    	xfonts-base \
+	xfonts-base \
 	dbus-x11 \
 	tini \
 	&& apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/*
+
+# no stand by and calibration for touch
+COPY xorg.conf /etc/X11/
 
 # up udev
 COPY entrypoint.sh /usr/bin/entrypoint.sh
