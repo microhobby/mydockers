@@ -1,4 +1,4 @@
-FROM matheuscastello/myx
+FROM matheuscastello/myx-ubuntu
 
 # prepare and build your application
 RUN apt-get -y update && apt-get install -y \
