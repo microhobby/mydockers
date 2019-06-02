@@ -1,0 +1,5 @@
+docker run --name weston \
+	-d -it \
+	--privileged \
+	-v /tmp:/tmp \
+	${image}
