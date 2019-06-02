@@ -1,6 +1,5 @@
 docker run --name chrome \
 	-d -it \
 	--privileged \
-	-v /var/run/dbus:/var/run/dbus \
-	-v /dev:/dev \
+	-v /tmp:/tmp \
 	${image} www.google.com.br

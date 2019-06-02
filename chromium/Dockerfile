@@ -1,13 +1,13 @@
-FROM matheuscastello/myx
+FROM matheuscastello/weston-deps
 
 # install chromium
 RUN apt-get -y update && apt-get install -y \
 	chromium \
 	&& apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/*
 
-# no stand by and calibration for touch
-COPY xorg.conf /etc/X11/
+# cmd to entrypoint
+ENV APP="chromium"
+ENV APPARGS="--no-sandbox --test-type --start-fullscreen"
 
-# up udev and startx
-COPY entrypoint.sh /usr/bin/entrypoint.sh
-ENTRYPOINT [ "/usr/bin/entrypoint.sh" ]
+# cmd as argument
+CMD [ "www.toradex.com/pt-br/operating-systems/torizon" ]
