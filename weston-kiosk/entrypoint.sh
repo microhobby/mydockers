@@ -84,6 +84,9 @@ rm -rf /tmp/.X11-unix
 rm -rf *-runtime-dir
 mkdir /tmp/.X11-unix
 
+# reset tty1
+setterm -cursor off > /dev/tty1
+
 # mount and trigger udev
 start_udev
 init_xdg
